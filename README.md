@@ -1,5 +1,6 @@
 # scaling-waddle
 Parallel text processing engine
+                                                                                                                                                                                                             
 🚀 Parallel Text Processing System
 
 A Python-based parallel document analyzer that extracts text, breaks it into chunks, and processes all chunks simultaneously using multi-core CPUs.
