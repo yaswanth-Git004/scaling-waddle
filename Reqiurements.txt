@@ -1,0 +1,42 @@
+#import re
+#import fitz  # PyMuPDF for PDF
+#import docx  # For DOCX files
+#import pptx  # For PPTX files
+#import pandas as pd
+#import sqlite3
+#import matplotlib.pyplot as plt
+#from concurrent.futures import ProcessPoolExecutor, as_completed
+#import nltk
+#from nltk.tokenize import sent_tokenize
+#from pathlib import Path
+
+
+PyMuPDF nltk python-docx python-pptx pandas matplotlib sqlite3                <---🔥 Install All Required Libraries (Recommended Single Command)
+
+
+📌 Install Each Individually (if needed)
+#Library	Installation Command
+#PyMuPDF	pip install PyMuPDF
+#nltk	pip install nltk
+#python-docx	pip install python-docx
+#python-pptx	pip install python-pptx
+#pandas	pip install pandas
+#matplotlib	pip install matplotlib
+
+         ----->                     ⚠ sqlite3 doesn’t need installation
+
+Because sqlite3 already comes built-in with Python, no installation is required.
+
+
+
+
+
+        ----->                 After installing, also download NLTK tokenizer manually once
+
+Run inside Python console or at the top of your program:
+
+import nltk
+nltk.download("punkt")
+nltk.download("punkt_tab")
+
+                              
