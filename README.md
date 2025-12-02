@@ -62,27 +62,34 @@ Visualization	Matplotlib plots
 ✔ Frequency Graphs & Insights
 ✔ output_rules.csv + rules.db generated
 
-🧩 Keywords Detected Automatically
-Category	Examples
-**Neural Networks	deep network, feedforward, etc.
-Layers	hidden layer, residual layer, pooling
-Neurons	relu neuron, tanh neuron
-Operations	backpropagation, gradient descent
-Architectures	CNN, RNN, Transformers, LSTM
-Training Terms	epoch, optimizer, batch size
-Math Terms	matrix, eigenvalues, dot product
-Probability	bayes, entropy, distribution
-Evaluation	accuracy, loss, F1Score
-**
+**🧩 Keywords Detected Automatically**
+
+**Category	Examples**
+
+**Neural Networks	deep network, feedforward, etc.**
+
+**Layers	hidden layer, residual layer, pooling**
+
+**Neurons	relu neuron, tanh neuron**
+
+**Operations	backpropagation, gradient descent**
+
+**Architectures	CNN, RNN, Transformers, LSTM**
+
+**Training Terms	epoch, optimizer, batch size**
+
+**Math Terms	matrix, eigenvalues, dot product**
+
+**Probability	bayes, entropy, distribution**
+
+**Evaluation	accuracy, loss, F1Score**
 
 
 
-⚙ Architecture / Flow
-**Load Document → Extract Text → Preprocess → Chunk Text
-          ↓                      ↓
-   Parallel CPU Workers  ←  Regex Rule Engine
-          ↓
-   CSV + DB Output + Visualization Graphs**
+**⚙ Architecture / Flow**
+
+
+**Load Document → Extract Text → Preprocess → Chunk Text -> Parallel CPU Workers -> Regex Rule Engine -> CSV + DB Output + Visualization Graphs**
 
 
 
