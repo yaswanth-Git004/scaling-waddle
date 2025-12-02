@@ -74,12 +74,18 @@ Math Terms	matrix, eigenvalues, dot product
 Probability	bayes, entropy, distribution
 Evaluation	accuracy, loss, F1Score
 **
+
+
+
 ⚙ Architecture / Flow
 **Load Document → Extract Text → Preprocess → Chunk Text
           ↓                      ↓
    Parallel CPU Workers  ←  Regex Rule Engine
           ↓
    CSV + DB Output + Visualization Graphs**
+
+
+
 
 📂 Output Files Generated
 File	Description
