@@ -1,7 +1,7 @@
 import re
-import fitz  # PyMuPDF for PDF
-import docx  # For DOCX files
-import pptx  # For PPTX files
+import fitz  
+import docx     
+import pptx  
 import pandas as pd
 import sqlite3
 import matplotlib.pyplot as plt
@@ -10,11 +10,11 @@ import nltk
 from nltk.tokenize import sent_tokenize
 from pathlib import Path
 
-# ====================== NLTK RESOURCES ======================
+
 nltk.download("punkt", quiet=True)
 nltk.download("punkt_tab", quiet=True)
 
-# ====================== RULE DEFINITIONS ======================
+
 BASE_RULES = {
     "neural_network_mentions": r"\b(neural\s+network(s)?|deep\s+network(s)?|feed[- ]?forward\s+network(s)?)\b",
     "layer_terms": r"\b(layer|layers|hidden\s+layer|output\s+layer|input\s+layer|convolution(al)?\s+layer|max\s+pooling|residual\s+layer)\b",
@@ -28,7 +28,7 @@ BASE_RULES = {
     "compute_constraints": r"\b(scale|scalability|memory\s+constrained|computational(ly)?|expensive|efficient|optimization)\b"
 }
 
-# ====================== FILE EXTRACTION ======================
+
 def extract_text(file_path: str) -> str:
     ext = Path(file_path).suffix.lower()
 
@@ -55,7 +55,7 @@ def extract_text(file_path: str) -> str:
         raise ValueError("❌ Unsupported file type. Use PDF / DOCX / TXT / PPTX")
 
 
-# ====================== TEXT PROCESSING ======================
+
 def preprocess(text: str) -> str:
     text = re.sub(r"\s+", " ", text)
     return text.strip()
@@ -82,7 +82,7 @@ def chunk_text(text: str, size: int = 20000):
     return chunks
 
 
-# ====================== RULE ENGINE ======================
+
 def apply_rules(chunk: str, rules: dict) -> dict:
     return {name: len(re.findall(pattern, chunk, re.I)) for name, pattern in rules.items()}
 
@@ -97,7 +97,7 @@ def parallel_process(chunks, rules, workers: int):
     return results
 
 
-# ====================== SAVE + VISUALS ======================
+
 def save_to_database(df: pd.DataFrame):
     conn = sqlite3.connect("rules.db")
     df.to_sql("results", conn, if_exists="replace", index=False)
@@ -134,7 +134,7 @@ def plot_chunk_intensity(df: pd.DataFrame):
     plt.show()
 
 
-# ====================== SUMMARY & INSIGHTS ======================
+
 def print_keyword_summary(df: pd.DataFrame):
     numeric = df.select_dtypes(include="number")
     if numeric.empty:
@@ -162,7 +162,7 @@ def print_top_chunks(df: pd.DataFrame, top_n: int = 3, snippet_len: int = 350):
         print(snippet + ("..." if len(snippet) == snippet_len else ""))
 
 
-# ====================== MAIN ======================
+
 def main():
     print("\n====== DOCUMENT RULE ANALYZER PRO (LOCAL VERSION) ======\n")
 
@@ -203,11 +203,11 @@ def main():
     print("\n===== PREVIEW (first 5 rows) =====\n")
     print(df.head(), "\n")
 
-    # ----- Dashboard-style outputs -----
+   
     print_keyword_summary(df)
     print_top_chunks(df, top_n=3)
 
-    # Visuals
+    
     print("\nOpening charts...")
     plot_rule_totals(df)
     plot_chunk_intensity(df)
@@ -216,4 +216,5 @@ def main():
 if __name__ == "__main__":
     from multiprocessing import freeze_support
     freeze_support()
+
     main()
